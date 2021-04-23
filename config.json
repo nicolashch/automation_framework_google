@@ -1,0 +1,17 @@
+{
+	"config":{
+		"use_grid": false,
+		"grid":"https://selenium.platzi.com",
+		"implicit_wait": 10,
+		"browser":{
+			"name":"chrome",
+			"executable_path":"/Users/nicolashch/Platzi/Automation_test/chromedriver"
+		},
+		"evidences":{
+			"base_path":"./evidences"
+		}
+	},
+	"environment":{
+		"url":"http://google.com"
+	}
+}
