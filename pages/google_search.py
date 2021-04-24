@@ -21,11 +21,10 @@ class GoogleSearch:
         return self.driver.title
 
     # Take a Screenshot of the current view
-    def take_screenshot(self, custom_name = None):
+    def take_screenshot(self, custom_name=None):
         pass
 
     # Identifies search bar element, types in it and send input
     def search_input(self):
         search_input = self.driver.find_element(*self.SEARCH_INPUT)
         search_input.send_keys("Wikipedia" + Keys.ENTER)
-
