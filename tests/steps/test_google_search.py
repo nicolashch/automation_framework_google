@@ -10,7 +10,7 @@ def test_visit_google(config, web_browser, context):
     google_home.search_input()
     context["browser"] = google_home
     print(context)
-    assert "Wikipedia" in google_home.title(), "You are not at Google"
+    assert "Wikipedia" in google_home.title(), "You are not at Wiki"
 
 
 '''def test_search_input(context):
