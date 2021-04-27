@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 
 # class that defines one page of the site
 class GoogleSearch:
-    SEARCH_INPUT = (By.ID, 'q')
+    SEARCH_INPUT = (By.NAME, 'q')
 
     # Constructor method
     def __init__(self, driver, config):
