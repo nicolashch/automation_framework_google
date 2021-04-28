@@ -7,7 +7,7 @@ import json
 import pytest
 import logging
 import validators
-import datetime
+#import datetimecd
 import selenium.webdriver
 from constants import SUPPORTED_BROWSERS
 

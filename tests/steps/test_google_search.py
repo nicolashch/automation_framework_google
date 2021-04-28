@@ -1,18 +1,27 @@
 import pytest
 import logging
 
+from pytest_bdd import (
+    scenarios,
+    given,
+    then,
+    when,
+    parsers
+)
 from google_search import GoogleSearch
 
+scenarios('../features/search.feature')
 
-def test_visit_google(config, web_browser, context):
+
+@when('The user visits google')
+def visit_google(config, web_browser, context):
     google_home = GoogleSearch(web_browser, config)
     google_home.load()
-    google_home.search_input()
     context["browser"] = google_home
-    print(context)
-    assert "Wikipedia" in google_home.title(), "You are not at Wiki"
+    assert "Google" in google_home.title(), "You are not at Google"
 
 
-'''def test_search_input(context):
+@then('The user can visualize google search bar')
+def search_input(context):
     google_home = context["browser"]
-    google_home.search_input()'''
+    google_home.search_input()
