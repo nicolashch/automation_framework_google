@@ -13,7 +13,7 @@ from google_search import GoogleSearch
 scenarios('../features/search.feature')
 
 
-@when('The user visits google')
+@when('User visits google')
 def visit_google(config, web_browser, context):
     google_home = GoogleSearch(web_browser, config)
     google_home.load()
@@ -21,7 +21,21 @@ def visit_google(config, web_browser, context):
     assert "Google" in google_home.title(), "You are not at Google"
 
 
-@then('The user can visualize google search bar')
+@then('User can search desired word')
 def search_input(context):
     google_home = context["browser"]
-    google_home.search_input()
+    google_result = google_home.search_input()
+    context["browser"] = google_result
+
+
+@then('User clicks at first link')
+def click_on_link(context):
+    google_result = GoogleSearch(*context["browser"])
+    context["browser"] = google_result.click_on()
+
+
+@then('Is redirected to site')
+def validate_redirection(context):
+    site = GoogleSearch(*context["browser"])
+    assert 'Wikipedia' in site.title(), "Wrong redirection"
+

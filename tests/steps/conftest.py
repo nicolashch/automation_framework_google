@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('./pages')
 sys.path.append('./libs')
 
@@ -7,10 +8,9 @@ import json
 import pytest
 import logging
 import validators
-#import datetimecd
+# import datetimecd
 import selenium.webdriver
 from constants import SUPPORTED_BROWSERS
-
 
 LOGGER = logging.getLogger(__name__)
 _driver = None
@@ -26,8 +26,8 @@ def web_browser(config):
         _driver = initialize_local_driver(browser_name, config['config']['browser']['executable_path'])
 
     _driver.implicitly_wait(config['config']['implicit_wait'])
-    _driver.set_window_size(1800, 900)
-    # _driver.maximize_window()
+    # _driver.set_window_size(900, 900)
+    _driver.maximize_window()
     _driver.delete_all_cookies()
     yield _driver
     _driver.quit()

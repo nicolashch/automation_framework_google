@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys
 # class that defines one page of the site
 class GoogleSearch:
     SEARCH_INPUT = (By.NAME, 'q')
+    FIRST_RESULT = (By.XPATH, '//a[@href="https://en.wikipedia.org/wiki/Main_Page"]')
 
     # Constructor method
     def __init__(self, driver, config):
@@ -28,3 +29,9 @@ class GoogleSearch:
     def search_input(self):
         search_input = self.driver.find_element(*self.SEARCH_INPUT)
         search_input.send_keys("Wikipedia" + Keys.ENTER)
+        return self.driver, self.config
+
+    def click_on(self):
+        click_on = self.driver.find_element(*self.FIRST_RESULT)
+        click_on.click()
+        return self.driver, self.config
