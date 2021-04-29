@@ -1,11 +1,12 @@
 @web
 
-Feature: Go to google page
+Feature: Go to google page and search for wikipedia
 
     Scenario: Load Home Page
 
-        When User visits google
+        Given User is at Google
 
-        Then User can search desired word
-        And User clicks at first link
+        When User searches desired word
+
+        Then User clicks at first link
         And Is redirected to site

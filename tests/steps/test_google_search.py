@@ -13,7 +13,7 @@ from google_search import GoogleSearch
 scenarios('../features/search.feature')
 
 
-@when('User visits google')
+@given('User is at Google')
 def visit_google(config, web_browser, context):
     google_home = GoogleSearch(web_browser, config)
     google_home.load()
@@ -21,7 +21,7 @@ def visit_google(config, web_browser, context):
     assert "Google" in google_home.title(), "You are not at Google"
 
 
-@then('User can search desired word')
+@when('User searches desired word')
 def search_input(context):
     google_home = context["browser"]
     google_result = google_home.search_input()
